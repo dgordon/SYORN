@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SYORN.Specifications", "SYORN.Specifications.csproj", "{A1C5D021-1F04-46FA-8B8A-DC83712C4FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SYORN", "..\SYORN\SYORN.csproj", "{682E2EF0-7160-4408-99BE-E03F8E5E25C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1C5D021-1F04-46FA-8B8A-DC83712C4FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C5D021-1F04-46FA-8B8A-DC83712C4FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C5D021-1F04-46FA-8B8A-DC83712C4FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C5D021-1F04-46FA-8B8A-DC83712C4FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682E2EF0-7160-4408-99BE-E03F8E5E25C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682E2EF0-7160-4408-99BE-E03F8E5E25C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682E2EF0-7160-4408-99BE-E03F8E5E25C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682E2EF0-7160-4408-99BE-E03F8E5E25C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

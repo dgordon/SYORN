@@ -1,0 +1,10 @@
+*obj
+*bin
+
+
+_Resharper.SYORN*
+
+*.user
+*.suo
+*.orig
+*.merge_*
