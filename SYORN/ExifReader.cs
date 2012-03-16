@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Drawing.Imaging;
 
 namespace SYORN.Services
@@ -14,11 +16,12 @@ namespace SYORN.Services
 
         public object Read()
         {
-            var list = new Dictionary<int,object>();
-            
+            var list = new Dictionary<string,object>();
+            var keyTranslation = PropertyItemValueConverter.PropertyKeyTranslator();
             foreach(var propItem in _propertyItems)
             {
-                list.Add(propItem.Id, PropertyItemValueConverter.ConvertValue(propItem));
+                if(keyTranslation.Any(x=>x.Key == propItem.Id))
+                    list.Add(keyTranslation[propItem.Id], PropertyItemValueConverter.ConvertValue(propItem));
             }
 
             return null;
