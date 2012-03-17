@@ -19,7 +19,9 @@ namespace SYORN.Specifications
                 var uriPath =
                     Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
                 var localPath = new Uri(uriPath.Remove(uriPath.IndexOf("bin"))).LocalPath;
-                _image = Image.FromFile(Path.Combine(localPath, "Images//nikon-e950.jpg"));
+                //var photo = "Images//canon-ixus.jpg";
+                var photo = "Images//nikon-e950.jpg";
+                _image = Image.FromFile(Path.Combine(localPath, photo));
                 _exifReader = new ExifReader(_image.PropertyItems);
             };
 

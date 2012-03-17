@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
+using System.Linq;
 using System.Text;
 
 namespace SYORN.Services
@@ -9,34 +10,21 @@ namespace SYORN.Services
     {
         public static object ConvertValue(PropertyItem prop)
         {
-            try
+            if (PropertyKeys().Any(x => x.Key == prop.Id))
             {
-                //get prop conversion types
-                var typesOfConversions = GetPropertyTypeOptions();
-                //get prop converter
-                Func<byte[], object> typeConverter = typesOfConversions[prop.Type];
-                //convert prop byte[] to primitive value
-                return typeConverter(prop.Value);
-
-                ////convert prop primitive value to original value
-                //var valueConversions = GetPropertyValueOptions();
-                //Func<object, object> valueConverter = valueConversions[prop.Id];
-                //var value = valueConverter(primitiveValue);
-
-                ////get prop name from id
-                //var nameConversions = PropertyKeyTranslator();
-                //var propName = nameConversions[prop.Id];
-
+                var typeConverter = PropertyTypeConversions[prop.Type];
+                var propValue = typeConverter(prop.Value);
+                
+                var propField = PropertyKeys()[prop.Id];
+                return new { Field = propField, Value = propValue };
             }
-            catch
+            else
             {
-                string message = string.Format("Cannot convert property ID: {0}", prop.Id);
-                throw new TypeConversionException(message);
+                return null;
             }
         }
 
-        //rename to PropertyKeyTranslator
-        public static Dictionary<int, string> PropertyKeyTranslator()
+        public static Dictionary<int, string> PropertyKeys()
         {
             return new Dictionary<int, string>
                        {
@@ -75,15 +63,15 @@ namespace SYORN.Services
 
                             //EXIF IFD Attributes
                             // A : version
-                            {36864, "ExifVersion"},
-                            {40960, "FlashPixVersion"},
+                            {36864, "ExifVersion"}, //default value 0220
+                            {40960, "FlashPixVersion"}, //default value 0100 == Flashpix Format Version 1.0, other == reserved
                             // B : image data characteristics
-                            {40961, "ColorSpace"},
+                            {40961, "ColorSpace"}, // 1 == sRGB, FFFF.H == Uncalibrated, Other == reserved
                             // C : image configuration
-                            {37121, "ComponentsConfiguration"},
+                            {37121, "ComponentsConfiguration"}, // 
                             {37122, "CompressedBitsPerPixel"},
-                            {40962, "PixelXDimension"},
-                            {40963, "PixelYDimension"},
+                            {40962, "PixelXDimension"}, //short or long
+                            {40963, "PixelYDimension"}, //short or long
                             // D : user information
                             {37500, "MakerNote"},
                             {37510, "UserComment"},
@@ -165,40 +153,44 @@ namespace SYORN.Services
                        };
         }
 
-        //rename to PropertyItem Conversion Types
-        private static Dictionary<short, Func<byte[], object>> GetPropertyTypeOptions()
+        private static Dictionary<short, Func<byte[], object>> PropertyTypeConversions
         {
-            return new Dictionary<short, Func<byte[], object>>
-                                         {
-                                            //BYTE
-                                            {1, value =>  { return "NOT IMPLEMENTED"; }},
-                                            //ASCII
-                                            {2, value => Encoding.ASCII.GetString(value).Substring(0, value.Length-2)},
-                                            //SHORT
-                                            {3, value => BitConverter.ToUInt16(value, 0)},
-                                            //LONG
-                                            {4, value => BitConverter.ToUInt32(value,0)},
-                                            //RATIONAL
-                                            {5, value =>
-                                                    {
-                                                        var numer = BitConverter.ToInt32(value, 0);
-                                                        var denom = BitConverter.ToInt32(value, 4);
-                                                        return Fraction(numer, denom);
-                                                    }
-                                            },
-                                            //UNDEFINED
-                                            {7, value => { return "NOT IMPLEMENTED"; }},
-                                            //SLONG
-                                            {9, value => BitConverter.ToUInt32(value,0)},
-                                            //SRATIONAL
-                                            {10, value =>
-                                                {
-                                                    var numer = BitConverter.ToUInt32(value, 0);
-                                                    var denom = BitConverter.ToUInt32(value, 4);
-                                                    return Fraction(numer, denom);
-                                                    }
-                                            }
-                                        };
+            get
+            {
+                return new Dictionary<short, Func<byte[], object>>
+                           {
+                               //BYTE c
+                               {1, value => { /*return "this is different";*/ return Convert.ToByte(value); }},
+                               //ASCII
+                               {2, value => Encoding.ASCII.GetString(value).Substring(0, value.Length - 1)},
+                               //SHORT
+                               {3, value => BitConverter.ToUInt16(value, 0)},
+                               //LONG
+                               {4, value => BitConverter.ToUInt32(value, 0)},
+                               //RATIONAL
+                               {
+                                   5, value =>
+                                          {
+                                              var numer = BitConverter.ToInt32(value, 0);
+                                              var denom = BitConverter.ToInt32(value, 4);
+                                              return Fraction(numer, denom);
+                                          }
+                                   },
+                               //UNDEFINED
+                               {7, value => { return value; }},
+                               //SLONG
+                               {9, value => BitConverter.ToUInt32(value, 0)},
+                               //SRATIONAL
+                               {
+                                   10, value =>
+                                           {
+                                               var numer = BitConverter.ToUInt32(value, 0);
+                                               var denom = BitConverter.ToUInt32(value, 4);
+                                               return Fraction(numer, denom);
+                                           }
+                                   }
+                           };
+            }
         }
 
         private static double Fraction(double numerator, double denominator)
