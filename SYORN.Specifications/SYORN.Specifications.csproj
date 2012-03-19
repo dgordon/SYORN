@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\canon-ixus.jpg" />
+    <Content Include="Images\IMG_1831.TIFF" />
     <Content Include="Images\nikon-e950.jpg" />
     <Content Include="Images\README.txt" />
   </ItemGroup>
