@@ -43,7 +43,8 @@
   <ItemGroup>
     <Compile Include="ExifReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PropertyItemConverter.cs" />
+    <Compile Include="Services\ConverterPropertyItemValue.cs" />
+    <Compile Include="Services\ExifDataProvider.cs" />
     <Compile Include="Services\PropertyItemValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>

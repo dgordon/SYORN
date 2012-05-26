@@ -5,17 +5,15 @@ namespace SYORN.Services
 {
     public class ExifReader
     {
-        private readonly IEnumerable<PropertyItem> _propertyItems;
-
-        public ExifReader(IEnumerable<PropertyItem> propertyItems)
+        public ExifReader()
         {
-            _propertyItems = propertyItems;
+            
         }
 
-        public object Read()
+        public object Read(IEnumerable<PropertyItem> propertyItems)
         {
             var list = new List<object>();
-            foreach(var propItem in _propertyItems)
+            foreach(var propItem in propertyItems)
             {
                 var obj = PropertyItemValueConverter.ConvertValue(propItem);
                 if(obj !=null)

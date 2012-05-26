@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Text;
 using Machine.Specifications;
 using FakeItEasy;
@@ -23,13 +24,16 @@ namespace SYORN.Specifications
                 //var photo = "Images//nikon-e950.jpg";
                 var photo = "Images//IMG_1831.TIFF";
                 _image = Image.FromFile(Path.Combine(localPath, photo));
-                _exifReader = new ExifReader(_image.PropertyItems);
+                _propertyItems = _image.PropertyItems;
+                //_exifReader = new ExifReader(_image.PropertyItems);
             };
 
-        Because of = () => _exifReader.Read();
+        Because of = () => _exifReader.Read(_propertyItems);
+
         It should_be = () => _image.ShouldNotBeNull();
 
         static Image _image;
+        static IEnumerable<PropertyItem> _propertyItems;
         static ExifReader _exifReader;
     }
 }
