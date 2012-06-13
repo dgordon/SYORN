@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Text;
 
 namespace SYORN.Services
 {
-    public class ExifDataProvider
+    internal class ExifDataProvider
     {
         public object Convert(PropertyItem propertyItem)
         {
             var method = PropertyValueConversions[propertyItem.Type];
-            var value = method.Invoke(propertyItem.Value);
-            return value;
+            return method.Invoke(propertyItem.Value);
         }
 
         private static Dictionary<short, Converter<byte[], object>> PropertyValueConversions
@@ -59,9 +57,5 @@ namespace SYORN.Services
         {
             return denominator > 0 ? numerator / denominator : 0.0;
         }
-        //private static long Fraction(long numerator, long denomicator)
-        //{
-        //    return denomicator > 0 ? numerator/denomicator : 0L;
-        //}
     }
 }

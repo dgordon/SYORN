@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Resources;
-using System.Text;
 using Machine.Specifications;
-using FakeItEasy;
 using SYORN.Services;
 
 namespace SYORN.Specifications
@@ -25,7 +21,11 @@ namespace SYORN.Specifications
                 var photo = "Images//IMG_1831.TIFF";
                 _image = Image.FromFile(Path.Combine(localPath, photo));
                 _propertyItems = _image.PropertyItems;
-                //_exifReader = new ExifReader(_image.PropertyItems);
+
+                var propertyLocator = new DefaultPropertyNameTranslator();
+                var propertyItemValueConverter = new DefaultPropertyItemValueConverter(propertyLocator);
+                
+                _exifReader = new ExifReader(propertyItemValueConverter);
             };
 
         Because of = () => _exifReader.Read(_propertyItems);

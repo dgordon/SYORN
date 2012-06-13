@@ -52,8 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultExifMetaReaderSpecs.cs" />
-    <Compile Include="ExifConversionProviderSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyNameTranslatorSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
