@@ -7,7 +7,7 @@ namespace SYORN.Specifications
     {
         Establish context = () => _translatePropertyName = new DefaultPropertyNameTranslator();
 
-        Because of = () => _translatePropertyName.From(258);
+        Because of = () => _propertyName =_translatePropertyName.From(258);
 
         It should_have_retrieved_property_name_from_configuration = () => _propertyName.ShouldEqual("BitsPerSample");
 
