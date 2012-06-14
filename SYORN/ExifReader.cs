@@ -5,23 +5,34 @@ namespace SYORN.Services
 {
     public class ExifReader
     {
-        readonly IPropertyItemValueConverter _propertyItemValueConverter;
-        public ExifReader(DefaultPropertyItemValueConverter propertyItemValueConverter)
+        readonly IPropertyIdTranslator _propertyItemIdTranslator;
+        readonly IPropertyItemValueTranslator _propertyItemValueConverter;
+        
+        public ExifReader(IPropertyIdTranslator propertyIdTranslator, IPropertyItemValueTranslator propertyItemValueConverter)
         {
+            _propertyItemIdTranslator = propertyIdTranslator;
             _propertyItemValueConverter = propertyItemValueConverter;
         }
 
-        public object Read(IEnumerable<PropertyItem> propertyItems)
+        public IEnumerable<Property> Read(IEnumerable<PropertyItem> propertyItems)
         {
-            var list = new List<object>();
+            var list = new List<Property>();
             foreach (var propItem in propertyItems)
             {
-                var obj = _propertyItemValueConverter.ConvertValue(propItem);
-                if (obj != null)
-                    list.Add(obj);
+                var name = _propertyItemIdTranslator.From(propItem.Id);
+                var value = _propertyItemValueConverter.From(propItem.Type, propItem.Value);
+                
+                if (!string.IsNullOrEmpty(name))
+                    list.Add(new Property{Name = name, Value = value});
             }
 
-            return null;
+            return list;
         }
+    }
+
+    public class Property
+    {
+        public string Name { get; set; }
+        public object Value { get; set; }
     }
 }

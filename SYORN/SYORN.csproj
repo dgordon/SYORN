@@ -44,14 +44,10 @@
   <ItemGroup>
     <Compile Include="ExifReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ExifDataProvider.cs" />
-    <Compile Include="Services\DefaultPropertyNameTranslator.cs" />
+    <Compile Include="Services\DefaultPropertyItemIdTranslator.cs" />
     <Compile Include="Services\DefaultPropertyItemValueConverter.cs" />
     <Compile Include="Models\ProperyItem.cs" />
     <Compile Include="TypeConversionException.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

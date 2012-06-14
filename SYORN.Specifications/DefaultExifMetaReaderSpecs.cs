@@ -22,18 +22,19 @@ namespace SYORN.Specifications
                 _image = Image.FromFile(Path.Combine(localPath, photo));
                 _propertyItems = _image.PropertyItems;
 
-                var propertyLocator = new DefaultPropertyNameTranslator();
-                var propertyItemValueConverter = new DefaultPropertyItemValueConverter(propertyLocator);
-                
-                _exifReader = new ExifReader(propertyItemValueConverter);
+                var propertyItemIdTranslator = new DefaultPropertyItemIdTranslator();
+                var propertyItemValueConverter = new DefaultPropertyItemValueTranslator();
+
+                _exifReader = new ExifReader(propertyItemIdTranslator, propertyItemValueConverter);
             };
 
-        Because of = () => _exifReader.Read(_propertyItems);
+        Because of = () => _properties = _exifReader.Read(_propertyItems);
 
         It should_be = () => _image.ShouldNotBeNull();
 
         static Image _image;
         static IEnumerable<PropertyItem> _propertyItems;
+        static IEnumerable<Property> _properties;
         static ExifReader _exifReader;
     }
 }
