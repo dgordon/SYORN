@@ -1,12 +1,23 @@
+EXIF-IFD Pointer
+34665	LONG
+
+GPS INFO IFD Pointer
+34853	LONG
+
+Interoperability IFD
+40965	LONG
+
+
+
 LEVELS (1)
 
 A. Tags relating to image data structure
 ImageWidth 					256 100 SHORT or LONG 1
 ImageLength 				257 101 SHORT or LONG 1
 BitsPerSample 				258 102 SHORT 3
-Compression 				259 103 SHORT 1
-PhotometricInterpretation 	262 106 SHORT 1
-Orientation 				274 112 SHORT 1
+Compression 				259 103 SHORT 1					---DEFAULT = none, 1 = uncompressed, 6 = JPEG compression (thumbnails only)
+PhotometricInterpretation 	262 106 SHORT 1					---DEFAULT = none, 2 = RGB, 6 = YCbCr, Other = reserved
+Orientation 				274 112 SHORT 1					---Orientation	
 SamplesPerPixel 			277 115 SHORT 1
 PlanarConfiguration 		284 11C SHORT 1
 YCbCrSubSampling 			530 212 SHORT 2

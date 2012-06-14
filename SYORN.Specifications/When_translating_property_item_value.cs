@@ -95,22 +95,23 @@ namespace SYORN.Specifications
         static object result;
     }
 
-    public class When_translating_byte_array_to_undefined
-    {
-        Establish context = () =>
-        {
-            valueToConvert = BitConverter.GetBytes(234234.34d);
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
-        };
+    //TODO: undefined tags are converted based on the tag name
+    //public class When_translating_byte_array_to_undefined
+    //{
+    //    Establish context = () =>
+    //    {
+    //        valueToConvert = BitConverter.GetBytes(234234.34d);
+    //        propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+    //    };
 
-        Because of = () => result = propertyItemValueTranslator.From((short)7, valueToConvert);
+    //    Because of = () => result = propertyItemValueTranslator.From(7, valueToConvert);
 
-        It should_have_been_translated = () => result.ShouldEqual(5);
+    //    It should_have_been_translated = () => result.ShouldEqual(5);
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
-        static byte[] valueToConvert;
-        static object result;
-    }
+    //    static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
+    //    static byte[] valueToConvert;
+    //    static object result;
+    //}
 
     public class When_translating_byte_array_to_a_signed_int
     {
