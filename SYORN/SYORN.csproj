@@ -49,6 +49,11 @@
     <Compile Include="Models\ProperyItem.cs" />
     <Compile Include="TypeConversionException.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Resources\ExifPropertyInformation.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
