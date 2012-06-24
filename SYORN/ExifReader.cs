@@ -1,38 +1,30 @@
 ﻿using System.Collections.Generic;
 using System.Drawing.Imaging;
+using SYORN.Helpers;
+using SYORN.Models;
 
 namespace SYORN.Services
 {
     public class ExifReader
     {
-        readonly IPropertyIdTranslator _propertyItemIdTranslator;
-        readonly IPropertyItemValueTranslator _propertyItemValueConverter;
+        readonly IPropertyTranslator _propertyItemTranslator;
         
-        public ExifReader(IPropertyIdTranslator propertyIdTranslator, IPropertyItemValueTranslator propertyItemValueConverter)
+        public ExifReader(IPropertyTranslator propertyTranslator)
         {
-            _propertyItemIdTranslator = propertyIdTranslator;
-            _propertyItemValueConverter = propertyItemValueConverter;
+            _propertyItemTranslator = propertyTranslator;
         }
 
-        public IEnumerable<Property> Read(IEnumerable<PropertyItem> propertyItems)
+        public IEnumerable<ExifPropertyInfo> Read(IEnumerable<PropertyItem> propertyItems)
         {
-            var list = new List<Property>();
+            var list = new List<ExifPropertyInfo>();
             foreach (var propItem in propertyItems)
             {
-                var name = _propertyItemIdTranslator.From(propItem.Id);
-                var value = _propertyItemValueConverter.From(propItem.Type, propItem.Value);
-                
-                if (!string.IsNullOrEmpty(name))
-                    list.Add(new Property{Name = name, Value = value});
+                var exifProperty = _propertyItemTranslator.From(propItem.CastToExifPropertyInfo());
+                //if (!string.IsNullOrEmpty(exifProperty))
+                //    list.Add(exifProperty);
             }
 
             return list;
         }
-    }
-
-    public class Property
-    {
-        public string Name { get; set; }
-        public object Value { get; set; }
     }
 }

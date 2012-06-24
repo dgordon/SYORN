@@ -1,4 +1,5 @@
 ﻿using System;
+using FakeItEasy;
 using Machine.Specifications;
 using SYORN.Services;
 
@@ -9,14 +10,14 @@ namespace SYORN.Specifications
         Establish context = () =>
         {
             valueToConvert = new byte[] { 5 };
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+            propertyItemValueConverter = new DefaultPropertyItemValueConverter();
         };
 
-        Because of = () => result = propertyItemValueTranslator.From(1, valueToConvert);
+        Because of = () => result = propertyItemValueConverter.From((short)1, valueToConvert);
 
         It should_have_been_translated_to_byte = () => ((byte)result).ShouldEqual((byte)5);
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
+        static DefaultPropertyItemValueConverter propertyItemValueConverter;
         static byte[] valueToConvert;
         static object result;
     }
@@ -27,15 +28,15 @@ namespace SYORN.Specifications
         {
             var encoding = new System.Text.ASCIIEncoding();
             valueToConvert = encoding.GetBytes("test value");
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+            propertyItemValueConverter = new DefaultPropertyItemValueConverter();
         };
 
-        Because of = () => result = propertyItemValueTranslator.From((short)2, valueToConvert);
+        Because of = () => result = propertyItemValueConverter.From((short)2, valueToConvert);
 
         //NOTE: when translating ASCII values the last character is intentionally truncated.
         It should_have_been_translated = () => result.ShouldEqual("test valu");
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
+        static DefaultPropertyItemValueConverter propertyItemValueConverter;
         static byte[] valueToConvert;
         static object result;
     }
@@ -45,14 +46,14 @@ namespace SYORN.Specifications
         Establish context = () =>
         {
             valueToConvert = BitConverter.GetBytes(234);
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+            propertyItemValueConverter = new DefaultPropertyItemValueConverter();
         };
 
-        Because of = () => result = propertyItemValueTranslator.From(3, valueToConvert);
+        Because of = () => result = propertyItemValueConverter.From((short)3, valueToConvert);
 
         It should_have_been_translated = () => ((ushort)result).ShouldEqual((ushort)234);
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
+        static DefaultPropertyItemValueConverter propertyItemValueConverter;
         static byte[] valueToConvert;
         static object result;
     }
@@ -62,14 +63,14 @@ namespace SYORN.Specifications
         Establish context = () =>
         {
             valueToConvert = BitConverter.GetBytes(3463465);
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+            propertyItemValueConverter = new DefaultPropertyItemValueConverter();
         };
 
-        Because of = () => result = propertyItemValueTranslator.From(4, valueToConvert);
+        Because of = () => result = propertyItemValueConverter.From((short)4, valueToConvert);
 
         It should_have_been_translated = () => ((uint)result).ShouldEqual((uint)3463465);
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
+        static DefaultPropertyItemValueConverter propertyItemValueConverter;
         static byte[] valueToConvert; 
         static object result;
     }
@@ -78,7 +79,7 @@ namespace SYORN.Specifications
     {
         Establish context = () =>
         {
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+            propertyItemValueConverter = new DefaultPropertyItemValueConverter();
             var numerator = BitConverter.GetBytes(1u);
             var denominator = BitConverter.GetBytes(200u);
             valueToConvert = new byte[8];
@@ -86,11 +87,11 @@ namespace SYORN.Specifications
             denominator.CopyTo(valueToConvert, 4);
         };
 
-        Because of = () => result = propertyItemValueTranslator.From(5, valueToConvert);
+        Because of = () => result = propertyItemValueConverter.From((short)5, valueToConvert);
 
         It should_have_been_translated = () => result.ShouldEqual(1d / 200d);
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
+        static DefaultPropertyItemValueConverter propertyItemValueConverter;
         static byte[] valueToConvert;
         static object result;
     }
@@ -118,15 +119,14 @@ namespace SYORN.Specifications
         Establish context = () =>
         {
             valueToConvert = BitConverter.GetBytes(23487345);
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+            propertyItemValueConverter = new DefaultPropertyItemValueConverter();
         };
 
-        Because of = () => result = propertyItemValueTranslator.From(9, valueToConvert);
+        Because of = () => result = propertyItemValueConverter.From((short)9, valueToConvert);
 
         It should_have_been_translated = () => ((int)result).ShouldEqual(23487345);
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
-        static byte[] valueToConvert;
+        static DefaultPropertyItemValueConverter propertyItemValueConverter; static byte[] valueToConvert;
         static object result;
     }
 
@@ -134,7 +134,7 @@ namespace SYORN.Specifications
     {
         Establish context = () =>
         {
-            propertyItemValueTranslator = new DefaultPropertyItemValueTranslator();
+            propertyItemValueConverter = new DefaultPropertyItemValueConverter();
             var numerator = BitConverter.GetBytes(3);
             var denominator = BitConverter.GetBytes(5);
             valueToConvert = null;
@@ -143,12 +143,11 @@ namespace SYORN.Specifications
             denominator.CopyTo(valueToConvert, 4);
         };
 
-        Because of = () => result = propertyItemValueTranslator.From(10, valueToConvert);
+        Because of = () => result = propertyItemValueConverter.From((short)10, valueToConvert);
 
         It should_have_been_translated = () => result.ShouldEqual(3d / 5d);
 
-        static DefaultPropertyItemValueTranslator propertyItemValueTranslator;
-        static byte[] valueToConvert;
+        static DefaultPropertyItemValueConverter propertyItemValueConverter; static byte[] valueToConvert;
         static object result;
     }
 }

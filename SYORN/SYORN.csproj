@@ -43,17 +43,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExifReader.cs" />
+    <Compile Include="Helpers\PropertyItemWrapper.cs" />
+    <Compile Include="Models\PropertyItemEncoded.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DefaultPropertyItemIdTranslator.cs" />
+    <Compile Include="Services\DefaultPropertyItemTranslator.cs" />
     <Compile Include="Services\DefaultPropertyItemValueConverter.cs" />
-    <Compile Include="Models\ProperyItem.cs" />
+    <Compile Include="Models\ExifProperty.cs" />
     <Compile Include="TypeConversionException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources\ExifPropertyInformation.xml">
+    <None Include="Resources\ExifPropertyInformation.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
 using Machine.Specifications;
+using SYORN.Models;
 using SYORN.Services;
 
 namespace SYORN.Specifications
@@ -21,20 +22,25 @@ namespace SYORN.Specifications
                 var photo = "Images//IMG_1831.TIFF";
                 _image = Image.FromFile(Path.Combine(localPath, photo));
                 _propertyItems = _image.PropertyItems;
+                
+                var propertyItemValueConverter = new DefaultPropertyItemValueConverter();
+                var propertyItemIdTranslator = new DefaultPropertyItemTranslator(propertyItemValueConverter);
+                
 
-                var propertyItemIdTranslator = new DefaultPropertyItemIdTranslator();
-                var propertyItemValueConverter = new DefaultPropertyItemValueTranslator();
-
-                _exifReader = new ExifReader(propertyItemIdTranslator, propertyItemValueConverter);
+                //_exifReader = new ExifReader(propertyItemIdTranslator, propertyItemValueConverter);
             };
 
         Because of = () => _properties = _exifReader.Read(_propertyItems);
 
-        It should_be = () => _image.ShouldNotBeNull();
+        It should_be = () =>
+                           {
+                               _properties.ShouldNotBeNull();
+                               var text = 234;
+                           };
 
         static Image _image;
         static IEnumerable<PropertyItem> _propertyItems;
-        static IEnumerable<Property> _properties;
+        static IEnumerable<ExifPropertyInfo> _properties;
         static ExifReader _exifReader;
     }
 }

@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="DefaultExifMetaReaderSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="When_translating_property_item_name.cs" />
+    <Compile Include="When_translating_property_item.cs" />
     <Compile Include="When_translating_property_item_value.cs" />
   </ItemGroup>
   <ItemGroup>

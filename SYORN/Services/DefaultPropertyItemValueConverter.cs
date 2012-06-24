@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SYORN.Services
 {
-    public class DefaultPropertyItemValueTranslator : IPropertyItemValueTranslator
+    public class DefaultPropertyItemValueConverter : IPropertyItemValueConverter
     {
         public object From(short propertyItemType, byte[] propertyItemValue)
         {
@@ -61,7 +61,7 @@ namespace SYORN.Services
         }
     }
 
-    public interface IPropertyItemValueTranslator
+    public interface IPropertyItemValueConverter
     {
         object From(short propertyItemType, byte[] propertyItemValue);
     }

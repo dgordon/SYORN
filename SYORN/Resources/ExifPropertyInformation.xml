@@ -2,125 +2,125 @@
 
 <ExifProperties>
   <!--TAGS RELATING TO IMAGE DATA SCTRUCTURE-->
-  <Property><Dec>256</Dec><Hex>100</Hex><Name>ImageWidth</Name></Property>
-  <Property><Dec>257</Dec><Hex>101</Hex><Name>ImageLength</Name></Property>
-  <Property><Dec>258</Dec><Hex>102</Hex><Name>BitsPerSample</Name></Property>
-  <Property><Dec>259</Dec><Hex>103</Hex><Name>Compression</Name></Property>
-  <Property><Dec>262</Dec><Hex>106</Hex><Name>PhotometricInterpretation</Name></Property>
-  <Property><Dec>274</Dec><Hex>112</Hex><Name>Orientation</Name></Property>
-  <Property><Dec>277</Dec><Hex>115</Hex><Name>SamplesPerPixel</Name></Property>
-  <Property><Dec>284</Dec><Hex>11C</Hex><Name>PlanarConfiguration</Name></Property>
-  <Property><Dec>530</Dec><Hex>212</Hex><Name>YCbCrSubSampling</Name></Property>
-  <Property><Dec>531</Dec><Hex>213</Hex><Name>YCbCrPositioning</Name></Property>
-  <Property><Dec>282</Dec><Hex>11A</Hex><Name>XResolution</Name></Property>
-  <Property><Dec>283</Dec><Hex>11B</Hex><Name>YResolution</Name></Property>
-  <Property><Dec>296</Dec><Hex>128</Hex><Name>ResolutionUnit</Name></Property>
+  <Property dec="256" hex="100" shortname="ImageWidth">Image width</Property>
+  <Property dec="257" hex="101" shortname="ImageLength">Image height</Property>
+  <Property dec="258" hex="102" shortname="BitsPerSample">Number of bits per component</Property>
+  <Property dec="259" hex="103" shortname="Compression">Compression scheme</Property>
+  <Property dec="262" hex="106" shortname="PhotometricInterpretation">Pixel composition</Property>
+  <Property dec="274" hex="112" shortname="Orientation">Orientation of image</Property>
+  <Property dec="277" hex="115" shortname="SamplesPerPixel">Number of components</Property>
+  <Property dec="284" hex="11C" shortname="PlanarConfiguration">Image data arrangement</Property>
+  <Property dec="530" hex="212" shortname="YCbCrSubSampling">Subsampling ratio of Y to C</Property>
+  <Property dec="531" hex="213" shortname="YCbCrPositioning">Y and C positioning</Property>
+  <Property dec="282" hex="11A" shortname="XResolution">Image resolution in width direction</Property>
+  <Property dec="283" hex="11B" shortname="YResolution">Image resolution in height direction</Property>
+  <Property dec="296" hex="128" shortname="ResolutionUnit">Unit of X and Y resolution</Property>
   <!--TAGS RELATING TO RECORDING OFFSET-->
-  <Property><Dec>273</Dec><Hex>111</Hex><Name>StripOffsets</Name></Property>
-  <Property><Dec>278</Dec><Hex>116</Hex><Name>RowsPerStrip</Name></Property>
-  <Property><Dec>279</Dec><Hex>117</Hex><Name>StripByteCounts</Name></Property>
-  <Property><Dec>513</Dec><Hex>201</Hex><Name>JPEGInterchangeFormat</Name></Property>
-  <Property><Dec>514</Dec><Hex>202</Hex><Name>JPEGInterchangeFormatLength</Name></Property>
+  <Property dec="273" hex="111" shortname="StripOffsets">Image data location</Property>
+  <Property dec="278" hex="116" shortname="RowsPerStrip">Number of rows per strip</Property>
+  <Property dec="279" hex="117" shortname="StripByteCounts">Bytes per compressed strip</Property>
+  <Property dec="513" hex="201" shortname="JPEGInterchangeFormat">Offset to JPEG SOI</Property>
+  <Property dec="514" hex="202" shortname="JPEGInterchangeFormatLength">Bytes of JPEG data</Property>
   <!--TAGS RELATING TO IMAGE DATA CHARACTERISTICS-->
-  <Property><Dec>301</Dec><Hex>12D</Hex><Name>TransferFunction</Name></Property>
-  <Property><Dec>318</Dec><Hex>13E</Hex><Name>WhitePoint</Name></Property>
-  <Property><Dec>319</Dec><Hex>13F</Hex><Name>PrimaryChromaticities</Name></Property>
-  <Property><Dec>529</Dec><Hex>211</Hex><Name>YCbCrCoefficients</Name></Property>
-  <Property><Dec>532</Dec><Hex>214</Hex><Name>ReferenceBlackWhite</Name></Property>
+  <Property dec="301" hex="12D" shortname="TransferFunction">Transfer function</Property>
+  <Property dec="318" hex="13E" shortname="WhitePoint">White point chromaticity</Property>
+  <Property dec="319" hex="13F" shortname="PrimaryChromaticities">Chromaticities of primaries</Property>
+  <Property dec="529" hex="211" shortname="YCbCrCoefficients">Color space transformation matrix coefficients</Property>
+  <Property dec="532" hex="214" shortname="ReferenceBlackWhite">Pair of black and white reference values</Property>
   <!--OTHER TAGS-->
-  <Property><Dec>306</Dec><Hex>132</Hex><Name>DateTime</Name></Property>
-  <Property><Dec>270</Dec><Hex>10E</Hex><Name>ImageDescription</Name></Property>
-  <Property><Dec>271</Dec><Hex>10F</Hex><Name>Make</Name></Property>
-  <Property><Dec>272</Dec><Hex>110</Hex><Name>Model</Name></Property>
-  <Property><Dec>305</Dec><Hex>131</Hex><Name>Software</Name></Property>
-  <Property><Dec>315</Dec><Hex>13B</Hex><Name>Artist</Name></Property>
-  <Property><Dec>3432</Dec><Hex>8289</Hex><Name>Copyright</Name></Property>
-
+  <Property dec="306" hex="132" shortname="DateTime">File change data and time</Property>
+  <Property dec="270" hex="10E" shortname="ImageDescription">Image title</Property>
+  <Property dec="271" hex="10F" shortname="Make">Image input equipment manufacturer</Property>
+  <Property dec="272" hex="110" shortname="Model">Image input equipment model</Property>
+  <Property dec="305" hex="131" shortname="Software">Software used</Property>
+  <Property dec="315" hex="13B" shortname="Artist">Person who create the image</Property>
+  <Property dec="3432" hex="8289" shortname="Copyright">Copyright holder</Property>
   <!--TAGS RELATING TO VERSION-->
-  <Property><Dec>36864</Dec><Hex>9000</Hex><Name>ExifVersion</Name></Property>
-  <Property><Dec>40960</Dec><Hex>A000</Hex><Name>FlashPixVersion</Name></Property>
+  <Property dec="36864" hex="9000" shortname="ExifVersion">Exif version</Property>
+  <Property dec="40960" hex="A000" shortname="FlashPixVersion">Supported Flashpix version</Property>
   <!--TAG RELATING TO IMAGE DATA CHARACTERISTICS-->
-  <Property><Dec>40961</Dec><Hex>A001</Hex><Name>ColorSpace</Name></Property>
+  <Property dec="40961" hex="A001" shortname="ColorSpace">Color space information</Property>
   <!--TAGS RELATING TO IMAGE CONFIGURATION-->
-  <Property><Dec>37121</Dec><Hex>9101</Hex><Name>ComponentsConfiguration</Name></Property>
-  <Property><Dec>37122</Dec><Hex>9102</Hex><Name>CompressedBitsPerPixel</Name></Property>
-  <Property><Dec>40962</Dec><Hex>A002</Hex><Name>PixelXDimension</Name></Property>
-  <Property><Dec>40963</Dec><Hex>A003</Hex><Name>PixelYDimension</Name></Property>
+  <Property dec="37121" hex="9101" shortname="ComponentsConfiguration">Meaning of each component</Property>
+  <Property dec="37122" hex="9102" shortname="CompressedBitsPerPixel">Image compression mode</Property>
+  <Property dec="40962" hex="A002" shortname="PixelXDimension">Valid image width</Property>
+  <Property dec="40963" hex="A003" shortname="PixelYDimension">Value image height</Property>
   <!--TAGS RELATING TO USER INFORMATION-->
-  <Property><Dec>37500</Dec><Hex>927C</Hex><Name>MakerNote</Name></Property>
-  <Property><Dec>37510</Dec><Hex>9286</Hex><Name>UserComment</Name></Property>
+  <Property dec="37500" hex="927C" shortname="MakerNote">Manufacturer notes</Property>
+  <Property dec="37510" hex="9286" shortname="UserComment">User comments</Property>
   <!--TAGS RELATING TO DATE AND TIME-->
-  <Property><Dec>36867</Dec><Hex>9003</Hex><Name>DateTimeOriginal</Name></Property>
-  <Property><Dec>36868</Dec><Hex>9004</Hex><Name>DateTimeDigitized</Name></Property>
-  <Property><Dec>37520</Dec><Hex>9290</Hex><Name>SubSecTime</Name></Property>
-  <Property><Dec>37521</Dec><Hex>9291</Hex><Name>SubSecTimeOriginal</Name></Property>
-  <Property><Dec>37522</Dec><Hex>9292</Hex><Name>SubSecTimeDigitized</Name></Property>
+  <Property dec="36867" hex="9003" shortname="DateTimeOriginal">Date and time of original data generation</Property>
+  <Property dec="36868" hex="9004" shortname="DateTimeDigitized">Date and time of digital data generation</Property>
+  <Property dec="37520" hex="9290" shortname="SubSecTime">DateTime subseconds</Property>
+  <Property dec="37521" hex="9291" shortname="SubSecTimeOriginal">DateTimeOriginal subseconds</Property>
+  <Property dec="37522" hex="9292" shortname="SubSecTimeDigitized">DateTimeDigitized subseconds</Property>
   <!--TAGS RELATING TO PICTURE-TAKING CONDITIONS-->
-  <Property><Dec>33434</Dec><Hex>829A</Hex><Name>ExposureTime</Name></Property>
-  <Property><Dec>33437</Dec><Hex>829D</Hex><Name>FNumber</Name></Property>
-  <Property><Dec>34850</Dec><Hex>8822</Hex><Name>ExposureProgram</Name></Property>
-  <Property><Dec>34852</Dec><Hex>8824</Hex><Name>SpectralSensitivity</Name></Property>
-  <Property><Dec>34855</Dec><Hex>8827</Hex><Name>ISOSpeedRatings</Name></Property>
-  <Property><Dec>34856</Dec><Hex>8828</Hex><Name>OECF</Name></Property>
-  <Property><Dec>37377</Dec><Hex>9201</Hex><Name>ShutterSpeedValue</Name></Property>
-  <Property><Dec>37378</Dec><Hex>9202</Hex><Name>ApertureValue</Name></Property>
-  <Property><Dec>37379</Dec><Hex>9203</Hex><Name>BrightnessValue</Name></Property>
-  <Property><Dec>37380</Dec><Hex>9204</Hex><Name>ExposureBiasValue</Name></Property>
-  <Property><Dec>37381</Dec><Hex>9205</Hex><Name>MaxApertureValue</Name></Property>
-  <Property><Dec>37382</Dec><Hex>9206</Hex><Name>SubjectDistance</Name></Property>
-  <Property><Dec>37383</Dec><Hex>9207</Hex><Name>MeteringMode</Name></Property>
-  <Property><Dec>37384</Dec><Hex>9208</Hex><Name>LightSource</Name></Property>
-  <Property><Dec>37385</Dec><Hex>9209</Hex><Name>Flash</Name></Property>
-  <Property><Dec>37386</Dec><Hex>920A</Hex><Name>FocalLength</Name></Property>
-  <Property><Dec>37386</Dec><Hex>9214</Hex><Name>SubjectArea</Name></Property>
-  <Property><Dec>41483</Dec><Hex>A20B</Hex><Name>FlashEnergy</Name></Property>
-  <Property><Dec>41484</Dec><Hex>A20C</Hex><Name>SpatialFrequencyResponse</Name></Property>
-  <Property><Dec>41486</Dec><Hex>A20E</Hex><Name>FocalPlaneXResolution</Name></Property>
-  <Property><Dec>41487</Dec><Hex>A20F</Hex><Name>FocalPlaneYResolution</Name></Property>
-  <Property><Dec>41488</Dec><Hex>A210</Hex><Name>FocalPlaneResolutionUnit</Name></Property>
-  <Property><Dec>41492</Dec><Hex>A214</Hex><Name>SubjectLocation</Name></Property>
-  <Property><Dec>41493</Dec><Hex>A215</Hex><Name>ExposureIndex</Name></Property>
-  <Property><Dec>41495</Dec><Hex>A217</Hex><Name>SensingMethod</Name></Property>
-  <Property><Dec>41728</Dec><Hex>A300</Hex><Name>FileSource</Name></Property>
-  <Property><Dec>41729</Dec><Hex>A301</Hex><Name>SceneType</Name></Property>
-  <Property><Dec>41730</Dec><Hex>A302</Hex><Name>CFAPattern</Name></Property>
-  <Property><Dec>41985</Dec><Hex>A401</Hex><Name>CustomRendered</Name></Property>
-  <Property><Dec>41986</Dec><Hex>A402</Hex><Name>ExposureMode</Name></Property>
-  <Property><Dec>41987</Dec><Hex>A403</Hex><Name>WhiteBalance</Name></Property>
-  <Property><Dec>41988</Dec><Hex>A404</Hex><Name>DigitalZoomRatio</Name></Property>
-  <Property><Dec>41989</Dec><Hex>A405</Hex><Name>FocalLengthIn35mmFilm</Name></Property>
-  <Property><Dec>41990</Dec><Hex>A406</Hex><Name>SceneCaptureType</Name></Property>
-  <Property><Dec>41991</Dec><Hex>A407</Hex><Name>GainControl</Name></Property>
-  <Property><Dec>41992</Dec><Hex>A408</Hex><Name>Contrast</Name></Property>
-  <Property><Dec>41993</Dec><Hex>A409</Hex><Name>Saturation</Name></Property>
-  <Property><Dec>41994</Dec><Hex>A40A</Hex><Name>Sharpness</Name></Property>
-  <Property><Dec>41995</Dec><Hex>A40B</Hex><Name>DeviceSettingDescription</Name></Property>
-  <Property><Dec>41996</Dec><Hex>A40C</Hex><Name>SubjectDistanceRange</Name></Property>
-  <Property><Dec>0</Dec><Hex></Hex><Name>GPSVersionID</Name></Property>
-  <Property><Dec>1</Dec><Hex></Hex><Name>GPSLatitudeRef</Name></Property>
-  <Property><Dec>2</Dec><Hex></Hex><Name>GPSLatitude</Name></Property>
-  <Property><Dec>3</Dec><Hex></Hex><Name>GPSLongitudeRef</Name></Property>
-  <Property><Dec>4</Dec><Hex></Hex><Name>GPSLongitude</Name></Property>
-  <Property><Dec>5</Dec><Hex></Hex><Name>GPSAltitudeRef</Name></Property>
-  <Property><Dec>6</Dec><Hex></Hex><Name>GPSAltitude</Name></Property>
-  <Property><Dec>7</Dec><Hex></Hex><Name>GPSTimeStamp</Name></Property>
-  <Property><Dec>8</Dec><Hex></Hex><Name>GPSSatellites</Name></Property>
-  <Property><Dec>9</Dec><Hex></Hex><Name>GPSStatus</Name></Property>
-  <Property><Dec>10</Dec><Hex></Hex><Name>GPSMeasureMode</Name></Property>
-  <Property><Dec>11</Dec><Hex></Hex><Name>GPSDOP</Name></Property>
-  <Property><Dec>12</Dec><Hex></Hex><Name>GPSSpeedRef</Name></Property>
-  <Property><Dec>13</Dec><Hex></Hex><Name>GPSSpeed</Name></Property>
-  <Property><Dec>14</Dec><Hex></Hex><Name>GPSTrackRef</Name></Property>
-  <Property><Dec>15</Dec><Hex></Hex><Name>GPSTrack</Name></Property>
-  <Property><Dec>16</Dec><Hex></Hex><Name>GPSImgDirectionRef</Name></Property>
-  <Property><Dec>17</Dec><Hex></Hex><Name>GPSImgDirection</Name></Property>
-  <Property><Dec>18</Dec><Hex></Hex><Name>GPSMapDatum</Name></Property>
-  <Property><Dec>19</Dec><Hex></Hex><Name>GPSDestLatitudeRef</Name></Property>
-  <Property><Dec>20</Dec><Hex></Hex><Name>GPSDestLatitude</Name></Property>
-  <Property><Dec>21</Dec><Hex></Hex><Name>GPSDestLongitudeRef</Name></Property>
-  <Property><Dec>22</Dec><Hex></Hex><Name>GPSDestLongitude</Name></Property>
-  <Property><Dec>23</Dec><Hex></Hex><Name>GPSDestBearingRef</Name></Property>
-  <Property><Dec>24</Dec><Hex></Hex><Name>GPSDestBearing</Name></Property>
-  <Property><Dec>25</Dec><Hex></Hex><Name>GPSDestDistanceRef</Name></Property>
-  <Property><Dec>26</Dec><Hex></Hex><Name>GPSDestDistance</Name></Property>
+  <Property dec="33434" hex="829A" shortname="ExposureTime">Exposure time</Property>
+  <Property dec="33437" hex="829D" shortname="FNumber">F number</Property>
+  <Property dec="34850" hex="8822" shortname="ExposureProgram">Exposure program</Property>
+  <Property dec="34852" hex="8824" shortname="SpectralSensitivity">Spectral sensitivity</Property>
+  <Property dec="34855" hex="8827" shortname="ISOSpeedRatings">ISO speed rating</Property>
+  <Property dec="34856" hex="8828" shortname="OECF">Optoelectric conversion factor</Property>
+  <Property dec="37377" hex="9201" shortname="ShutterSpeedValue">Shutter speed</Property>
+  <Property dec="37378" hex="9202" shortname="ApertureValue">Aperture</Property>
+  <Property dec="37379" hex="9203" shortname="BrightnessValue">Brightness</Property>
+  <Property dec="37380" hex="9204" shortname="ExposureBiasValue">Exposure bias</Property>
+  <Property dec="37381" hex="9205" shortname="MaxApertureValue">Maximum lens aperture</Property>
+  <Property dec="37382" hex="9206" shortname="SubjectDistance">Subject distance</Property>
+  <Property dec="37383" hex="9207" shortname="MeteringMode">Metering mode</Property>
+  <Property dec="37384" hex="9208" shortname="LightSource">Light source</Property>
+  <Property dec="37385" hex="9209" shortname="Flash">Flash</Property>
+  <Property dec="37386" hex="920A" shortname="FocalLength">Lens focal length</Property>
+  <Property dec="37386" hex="9214" shortname="SubjectArea">Subject area</Property>
+  <Property dec="41483" hex="A20B" shortname="FlashEnergy">Flash energy</Property>
+  <Property dec="41484" hex="A20C" shortname="SpatialFrequencyResponse">Spatial frequency response</Property>
+  <Property dec="41486" hex="A20E" shortname="FocalPlaneXResolution">Focal plan X resolution</Property>
+  <Property dec="41487" hex="A20F" shortname="FocalPlaneYResolution">Focal plan Y resolution</Property>
+  <Property dec="41488" hex="A210" shortname="FocalPlaneResolutionUnit">Focal plan resolution unit</Property>
+  <Property dec="41492" hex="A214" shortname="SubjectLocation">Subject location</Property>
+  <Property dec="41493" hex="A215" shortname="ExposureIndex">Exposure index</Property>
+  <Property dec="41495" hex="A217" shortname="SensingMethod">Sensing method</Property>
+  <Property dec="41728" hex="A300" shortname="FileSource">File source</Property>
+  <Property dec="41729" hex="A301" shortname="SceneType">Scene type</Property>
+  <Property dec="41730" hex="A302" shortname="CFAPattern">CFA pattern</Property>
+  <Property dec="41985" hex="A401" shortname="CustomRendered">Custom image processing</Property>
+  <Property dec="41986" hex="A402" shortname="ExposureMode">Exposure mode</Property>
+  <Property dec="41987" hex="A403" shortname="WhiteBalance">While balance</Property>
+  <Property dec="41988" hex="A404" shortname="DigitalZoomRatio">Digital zoom ratio</Property>
+  <Property dec="41989" hex="A405" shortname="FocalLengthIn35mmFilm">Focal length in 35mm film</Property>
+  <Property dec="41990" hex="A406" shortname="SceneCaptureType">Scene capture type</Property>
+  <Property dec="41991" hex="A407" shortname="GainControl">Gain control</Property>
+  <Property dec="41992" hex="A408" shortname="Contrast">Contrast</Property>
+  <Property dec="41993" hex="A409" shortname="Saturation">Saturation</Property>
+  <Property dec="41994" hex="A40A" shortname="Sharpness">Sharpness</Property>
+  <Property dec="41995" hex="A40B" shortname="DeviceSettingDescription">Device settings description</Property>
+  <Property dec="41996" hex="A40C" shortname="SubjectDistanceRange">Subject distance range</Property>
+  <!--TAGS RELATING TO GPS-->
+  <Property dec="0" hex="" shortname="GPSVersionID">GPA tag version</Property>
+  <Property dec="1" hex="" shortname="GPSLatitudeRef">North or South Latitude</Property>
+  <Property dec="2" hex="" shortname="GPSLatitude">Latitude</Property>
+  <Property dec="3" hex="" shortname="GPSLongitudeRef">East or West Longitude</Property>
+  <Property dec="4" hex="" shortname="GPSLongitude">Longitude</Property>
+  <Property dec="5" hex="" shortname="GPSAltitudeRef">Altitude reference</Property>
+  <Property dec="6" hex="" shortname="GPSAltitude">Altitude</Property>
+  <Property dec="7" hex="" shortname="GPSTimeStamp">GPS time (atomic clock)</Property>
+  <Property dec="8" hex="" shortname="GPSSatellites">GPS satelites used for measurement</Property>
+  <Property dec="9" hex="" shortname="GPSStatus">GPS receiver status</Property>
+  <Property dec="10" hex="" shortname="GPSMeasureMode">GPS measurement precision</Property>
+  <Property dec="11" hex="" shortname="GPSDOP">Measurement precision</Property>
+  <Property dec="12" hex="" shortname="GPSSpeedRef">Speed unit</Property>
+  <Property dec="13" hex="" shortname="GPSSpeed">Speed of GPS receiver</Property>
+  <Property dec="14" hex="" shortname="GPSTrackRef">Reference for direction of image</Property>
+  <Property dec="15" hex="" shortname="GPSTrack">Direction of movement</Property>
+  <Property dec="16" hex="" shortname="GPSImgDirectionRef">Reference for direction of image</Property>
+  <Property dec="17" hex="" shortname="GPSImgDirection">RDirection of image</Property>
+  <Property dec="18" hex="" shortname="GPSMapDatum">Geodetic survey data used</Property>
+  <Property dec="19" hex="" shortname="GPSDestLatitudeRef">Reference for latitude of destination</Property>
+  <Property dec="20" hex="" shortname="GPSDestLatitude">Latitude of destination</Property>
+  <Property dec="21" hex="" shortname="GPSDestLongitudeRef">Reference for longitude of destination</Property>
+  <Property dec="22" hex="" shortname="GPSDestLongitude">Longitude of destination</Property>
+  <Property dec="23" hex="" shortname="GPSDestBearingRef">Reference for bearing of destination</Property>
+  <Property dec="24" hex="" shortname="GPSDestBearing">Bearing of destination</Property>
+  <Property dec="25" hex="" shortname="GPSDestDistanceRef">Reference for distance to destination</Property>
+  <Property dec="26" hex="" shortname="GPSDestDistance">Distance to destination</Property>
 </ExifProperties>
