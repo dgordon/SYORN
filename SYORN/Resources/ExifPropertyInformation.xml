@@ -4,7 +4,9 @@
   <!--TAGS RELATING TO IMAGE DATA SCTRUCTURE-->
   <Property dec="256" hex="100" shortname="ImageWidth" name="Image width"></Property>
   <Property dec="257" hex="101" shortname="ImageLength" name="Image height"></Property>
-  <Property dec="258" hex="102" shortname="BitsPerSample" name="Number of bits per component"></Property>
+  <Property dec="258" hex="102" shortname="BitsPerSample" name="Number of bits per component">
+    <!--<Values default="8"/>-->
+  </Property>
   <Property dec="259" hex="103" shortname="Compression" name="Compression scheme">
     <Values default="none">
       <Value code="1">uncompressed</Value>
@@ -19,10 +21,37 @@
       <Value code="Other">reserved</Value>
     </Values>
   </Property>
-  <Property dec="274" hex="112" shortname="Orientation" name="Orientation of image"></Property>
-  <Property dec="277" hex="115" shortname="SamplesPerPixel" name="Number of components"></Property>
-  <Property dec="284" hex="11C" shortname="PlanarConfiguration" name="Image data arrangement"></Property>
-  <Property dec="530" hex="212" shortname="YCbCrSubSampling" name="Subsampling ratio of Y to C"></Property>
+  <Property dec="274" hex="112" shortname="Orientation" name="Orientation of image">
+    <Values default="1">
+      <Value code="1">The 0th row is at the visual top of the image, and the 0th column is the visual left-hand side.</Value>
+      <Value code="2">The 0th row is at the visual top of the image, and the 0th column is the visual right-hand side.</Value>
+      <Value code="3">The 0th row is at the visual bottom of the image, and the 0th column is the visual right-hand side.</Value>
+      <Value code="4">The 0th row is at the visual bottom of the image, and the 0th column is the visual left-hand side.</Value>
+      <Value code="5">The 0th row is the visual left-hand side of the image, and the 0th column is the visual top.</Value>
+      <Value code="6">The 0th row is the visual right-hand side of the image, and the 0th column is the visual top.</Value>
+      <Value code="7">The 0th row is the visual right-hand side of the image, and the 0th column is the visual bottom.</Value>
+      <Value code="8">The 0th row is the visual left-hand side of the image, and the 0th column is the visual bottom.</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="277" hex="115" shortname="SamplesPerPixel" name="Number of components">
+    <!--<Values default="3"/>-->
+  </Property>
+  <Property dec="284" hex="11C" shortname="PlanarConfiguration" name="Image data arrangement">
+    <Values default="">
+      <Value code="1">chunky format</Value>
+      <Value code="2">planar format</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="530" hex="212" shortname="YCbCrSubSampling" name="Subsampling ratio of Y to C">
+    <Values default="">
+      <!--exif2 page 25 WTF on a short?-->
+      <Value code="[2,1]">YCbCr4:2:2</Value>
+      <Value code="[2,2]">YCbCr4:2:0</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <Property dec="531" hex="213" shortname="YCbCrPositioning" name="Y and C positioning">
     <Values default="1">
       <Value code="1">centered</Value>
@@ -30,9 +59,19 @@
       <Value code="Other">reserved</Value>
     </Values>
   </Property>
-  <Property dec="282" hex="11A" shortname="XResolution" name="Image resolution in width direction"></Property>
-  <Property dec="283" hex="11B" shortname="YResolution" name="Image resolution in height direction"></Property>
-  <Property dec="296" hex="128" shortname="ResolutionUnit" name="Unit of X and Y resolution"></Property>
+  <Property dec="282" hex="11A" shortname="XResolution" name="Image resolution in width direction">
+    <!--<Values default="72"/>-->
+  </Property>
+  <Property dec="283" hex="11B" shortname="YResolution" name="Image resolution in height direction">
+    <!--<Values default="72"/>-->
+  </Property>
+  <Property dec="296" hex="128" shortname="ResolutionUnit" name="Unit of X and Y resolution">
+    <Values default="2">
+      <Value code="2">inches</Value>
+      <Value code="3">centimeters</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <!--TAGS RELATING TO RECORDING OFFSET-->
   <Property dec="273" hex="111" shortname="StripOffsets" name="Image data location"></Property>
   <Property dec="278" hex="116" shortname="RowsPerStrip" name="Number of rows per strip"></Property>
@@ -55,11 +94,37 @@
   <Property dec="3432" hex="8289" shortname="Copyright" name="Copyright holder"></Property>
   <!--TAGS RELATING TO VERSION-->
   <Property dec="36864" hex="9000" shortname="ExifVersion" name="Exif version"></Property>
-  <Property dec="40960" hex="A000" shortname="FlashPixVersion" name="Supported Flashpix version"></Property>
+  <Property dec="40960" hex="A000" shortname="FlashPixVersion" name="Supported Flashpix version">
+    <Values default="0100">
+      <Value code="0100">Flashpix Format Version 1.0</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <!--TAG RELATING TO IMAGE DATA CHARACTERISTICS-->
-  <Property dec="40961" hex="A001" shortname="ColorSpace" name="Color space information"></Property>
+  <Property dec="40961" hex="A001" shortname="ColorSpace" name="Color space information">
+    <Values default="">
+      <Value code="1">sRGB</Value>
+      <Value code="FFFF.H">Uncalibrated</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <!--TAGS RELATING TO IMAGE CONFIGURATION-->
-  <Property dec="37121" hex="9101" shortname="ComponentsConfiguration" name="Meaning of each component"></Property>
+  <Property dec="37121" hex="9101" shortname="ComponentsConfiguration" name="Meaning of each component">
+    <!--<Values default="">
+      
+        default values may be more complex than current consuming assembly is designed for. (exif2 page.33)
+        these code possibilities need to be looked into in more depth at a later time
+      -->
+      <!--<Value code="0">does not exist</Value>
+      <Value code="1">Y</Value>
+      <Value code="2">Cb</Value>
+      <Value code="3">Cr</Value>
+      <Value code="4">R</Value>
+      <Value code="5">G</Value>
+      <Value code="6">B</Value>
+      <Value code="Other">does not exist</Value>
+    </Values>-->
+  </Property>
   <Property dec="37122" hex="9102" shortname="CompressedBitsPerPixel" name="Image compression mode"></Property>
   <Property dec="40962" hex="A002" shortname="PixelXDimension" name="Valid image width"></Property>
   <Property dec="40963" hex="A003" shortname="PixelYDimension" name="Value image height"></Property>
@@ -75,7 +140,20 @@
   <!--TAGS RELATING TO PICTURE-TAKING CONDITIONS-->
   <Property dec="33434" hex="829A" shortname="ExposureTime" name="Exposure time"></Property>
   <Property dec="33437" hex="829D" shortname="FNumber" name="F number"></Property>
-  <Property dec="34850" hex="8822" shortname="ExposureProgram" name="Exposure program"></Property>
+  <Property dec="34850" hex="8822" shortname="ExposureProgram" name="Exposure program">
+    <Values default="0">
+      <Value code="0">Not defined</Value>
+      <Value code="1">Manual</Value>
+      <Value code="2">Normal program</Value>
+      <Value code="3">Aperture priority</Value>
+      <Value code="4">Shutter priority</Value>
+      <Value code="5">Creative program (biased toward depth of field)</Value>
+      <Value code="6">Action program (biased toward fast shutter speed)</Value>
+      <Value code="7">Portrait mode (for closeup photos with the background out of focus)</Value>
+      <Value code="8">Landscape mode (for landscape photos with the background in focus)</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <Property dec="34852" hex="8824" shortname="SpectralSensitivity" name="Spectral sensitivity"></Property>
   <Property dec="34855" hex="8827" shortname="ISOSpeedRatings" name="ISO speed rating"></Property>
   <Property dec="34856" hex="8828" shortname="OECF" name="Optoelectric conversion factor"></Property>
@@ -85,11 +163,52 @@
   <Property dec="37380" hex="9204" shortname="ExposureBiasValue" name="Exposure bias"></Property>
   <Property dec="37381" hex="9205" shortname="MaxApertureValue" name="Maximum lens aperture"></Property>
   <Property dec="37382" hex="9206" shortname="SubjectDistance" name="Subject distance"></Property>
-  <Property dec="37383" hex="9207" shortname="MeteringMode" name="Metering mode"></Property>
-  <Property dec="37384" hex="9208" shortname="LightSource" name="Light source"></Property>
-  <Property dec="37385" hex="9209" shortname="Flash" name="Flash"></Property>
+  <Property dec="37383" hex="9207" shortname="MeteringMode" name="Metering mode">
+    <Values default="0">
+      <Value code="0">unknown</Value>
+      <Value code="1">Average</Value>
+      <Value code="2">CenterWeightedAverage</Value>
+      <Value code="3">Spot</Value>
+      <Value code="4">MultiSpot</Value>
+      <Value code="5">Pattern</Value>
+      <Value code="6">Partial</Value>
+      <Value code="Other">reserved</Value>
+      <Value code="255">other</Value>
+    </Values>
+  </Property>
+  <Property dec="37384" hex="9208" shortname="LightSource" name="Light source">
+    <Values default="0">
+      <Value code="0">unknown</Value>
+      <Value code="1">Daylight</Value>
+      <Value code="2">Fluorescent</Value>
+      <Value code="3">Tungsten (incandescent light)</Value>
+      <Value code="4">Flash</Value>
+      <Value code="9">Fine weather</Value>
+      <Value code="10">Cloudy weather</Value>
+      <Value code="11">Shade</Value>
+      <Value code="12">Daylight fluorescent (D 5700 – 7100K)</Value>
+      <Value code="13">Day white fluorescent (N 4600 – 5400K)</Value>
+      <Value code="14">Cool white fluorescent (W 3900 – 4500K)</Value>
+      <Value code="15">White fluorescent (WW 3200 – 3700K)</Value>
+      <Value code="17">Standard light A</Value>
+      <Value code="18">Standard light B</Value>
+      <Value code="19">Standard light C</Value>
+      <Value code="20">D55</Value>
+      <Value code="21">D65</Value>
+      <Value code="22">D75</Value>
+      <Value code="23">D50</Value>
+      <Value code="24">ISO studio tungsten</Value>
+      <Value code="255">other light source</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="37385" hex="9209" shortname="Flash" name="Flash">
+    <!--these code values need to be further looked at later in time-->
+  </Property>
   <Property dec="37386" hex="920A" shortname="FocalLength" name="Lens focal length"></Property>
-  <Property dec="37386" hex="9214" shortname="SubjectArea" name="Subject area"></Property>
+  <Property dec="37386" hex="9214" shortname="SubjectArea" name="Subject area">
+    <!--these code values need to be further looked at later in time-->
+  </Property>
   <Property dec="41483" hex="A20B" shortname="FlashEnergy" name="Flash energy"></Property>
   <Property dec="41484" hex="A20C" shortname="SpatialFrequencyResponse" name="Spatial frequency response"></Property>
   <Property dec="41486" hex="A20E" shortname="FocalPlaneXResolution" name="Focal plan X resolution"></Property>
@@ -97,48 +216,204 @@
   <Property dec="41488" hex="A210" shortname="FocalPlaneResolutionUnit" name="Focal plan resolution unit"></Property>
   <Property dec="41492" hex="A214" shortname="SubjectLocation" name="Subject location"></Property>
   <Property dec="41493" hex="A215" shortname="ExposureIndex" name="Exposure index"></Property>
-  <Property dec="41495" hex="A217" shortname="SensingMethod" name="Sensing method"></Property>
+  <Property dec="41495" hex="A217" shortname="SensingMethod" name="Sensing method">
+    <Values default="">
+      <Value code="1">Not defined</Value>
+      <Value code="2">One-chip color area sensor</Value>
+      <Value code="3">Two-chip color area sensor</Value>
+      <Value code="4">Three-chip color area sensor</Value>
+      <Value code="5">Color sequential area sensor</Value>
+      <Value code="7">Trilinear sensor</Value>
+      <Value code="8">Color sequential linear sensor</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <Property dec="41728" hex="A300" shortname="FileSource" name="File source"></Property>
   <Property dec="41729" hex="A301" shortname="SceneType" name="Scene type"></Property>
   <Property dec="41730" hex="A302" shortname="CFAPattern" name="CFA pattern"></Property>
-  <Property dec="41985" hex="A401" shortname="CustomRendered" name="Custom image processing"></Property>
-  <Property dec="41986" hex="A402" shortname="ExposureMode" name="Exposure mode"></Property>
-  <Property dec="41987" hex="A403" shortname="WhiteBalance" name="While balance"></Property>
+  <Property dec="41985" hex="A401" shortname="CustomRendered" name="Custom image processing">
+    <Values default="0">
+      <Value code="0">Normal process</Value>
+      <Value code="1">Custom process</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="41986" hex="A402" shortname="ExposureMode" name="Exposure mode">
+    <Values default="">
+      <Value code="0">Auto exposure</Value>
+      <Value code="1">Manual exposure</Value>
+      <Value code="2">Auto bracket</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="41987" hex="A403" shortname="WhiteBalance" name="While balance">
+    <Values default="">
+      <Value code="0">Auto white balance</Value>
+      <Value code="1">Manual white balance</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <Property dec="41988" hex="A404" shortname="DigitalZoomRatio" name="Digital zoom ratio"></Property>
   <Property dec="41989" hex="A405" shortname="FocalLengthIn35mmFilm" name="Focal length in 35mm film"></Property>
-  <Property dec="41990" hex="A406" shortname="SceneCaptureType" name="Scene capture type"></Property>
-  <Property dec="41991" hex="A407" shortname="GainControl" name="Gain control"></Property>
-  <Property dec="41992" hex="A408" shortname="Contrast" name="Contrast"></Property>
-  <Property dec="41993" hex="A409" shortname="Saturation" name="Saturation"></Property>
-  <Property dec="41994" hex="A40A" shortname="Sharpness" name="Sharpness"></Property>
+  <Property dec="41990" hex="A406" shortname="SceneCaptureType" name="Scene capture type">
+    <Values default="0">
+      <Value code="0">Standard</Value>
+      <Value code="1">Landscape</Value>
+      <Value code="2">Portrait</Value>
+      <Value code="3">Night scene</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="41991" hex="A407" shortname="GainControl" name="Gain control">
+    <Values default="">
+      <Value code="0">None</Value>
+      <Value code="1">Low gain up</Value>
+      <Value code="2">High gain up</Value>
+      <Value code="3">Low gain down</Value>
+      <Value code="4">High gain down</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="41992" hex="A408" shortname="Contrast" name="Contrast">
+    <Values default="0">
+      <Value code="0">Normal</Value>
+      <Value code="1">Soft</Value>
+      <Value code="2">Hard</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="41993" hex="A409" shortname="Saturation" name="Saturation">
+    <Values default="0">
+      <Value code="0">Normal</Value>
+      <Value code="1">Low saturation</Value>
+      <Value code="2">High saturation</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="41994" hex="A40A" shortname="Sharpness" name="Sharpness">
+    <Values default="0">
+      <Value code="0">Normal</Value>
+      <Value code="1">Soft</Value>
+      <Value code="2">Hard</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <Property dec="41995" hex="A40B" shortname="DeviceSettingDescription" name="Device settings description"></Property>
-  <Property dec="41996" hex="A40C" shortname="SubjectDistanceRange" name="Subject distance range"></Property>
+  <Property dec="41996" hex="A40C" shortname="SubjectDistanceRange" name="Subject distance range">
+    <Values default="">
+      <Value code="0">unknown</Value>
+      <Value code="1">Macro</Value>
+      <Value code="2">Close view</Value>
+      <Value code="3">Distant view</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
   <!--TAGS RELATING TO GPS-->
-  <Property dec="0" hex="" shortname="GPSVersionID" name="GPA tag version"></Property>
-  <Property dec="1" hex="" shortname="GPSLatitudeRef" name="North or South Latitude"></Property>
-  <Property dec="2" hex="" shortname="GPSLatitude" name="Latitude"></Property>
-  <Property dec="3" hex="" shortname="GPSLongitudeRef" name="East or West Longitude"></Property>
-  <Property dec="4" hex="" shortname="GPSLongitude" name="Longitude"></Property>
-  <Property dec="5" hex="" shortname="GPSAltitudeRef" name="Altitude reference"></Property>
-  <Property dec="6" hex="" shortname="GPSAltitude" name="Altitude"></Property>
-  <Property dec="7" hex="" shortname="GPSTimeStamp" name="GPS time (atomic clock)"></Property>
-  <Property dec="8" hex="" shortname="GPSSatellites" name="GPS satelites used for measurement"></Property>
-  <Property dec="9" hex="" shortname="GPSStatus" name="GPS receiver status"></Property>
-  <Property dec="10" hex="" shortname="GPSMeasureMode" name="GPS measurement precision"></Property>
-  <Property dec="11" hex="" shortname="GPSDOP" name="Measurement precision"></Property>
-  <Property dec="12" hex="" shortname="GPSSpeedRef" name="Speed unit"></Property>
-  <Property dec="13" hex="" shortname="GPSSpeed" name="Speed of GPS receiver"></Property>
-  <Property dec="14" hex="" shortname="GPSTrackRef" name="Reference for direction of image"></Property>
-  <Property dec="15" hex="" shortname="GPSTrack" name="Direction of movement"></Property>
-  <Property dec="16" hex="" shortname="GPSImgDirectionRef" name="Reference for direction of image"></Property>
-  <Property dec="17" hex="" shortname="GPSImgDirection" name="RDirection of image"></Property>
-  <Property dec="18" hex="" shortname="GPSMapDatum" name="Geodetic survey data used"></Property>
-  <Property dec="19" hex="" shortname="GPSDestLatitudeRef" name="Reference for latitude of destination"></Property>
-  <Property dec="20" hex="" shortname="GPSDestLatitude" name="Latitude of destination"></Property>
-  <Property dec="21" hex="" shortname="GPSDestLongitudeRef" name="Reference for longitude of destination"></Property>
-  <Property dec="22" hex="" shortname="GPSDestLongitude" name="Longitude of destination"></Property>
-  <Property dec="23" hex="" shortname="GPSDestBearingRef" name="Reference for bearing of destination"></Property>
-  <Property dec="24" hex="" shortname="GPSDestBearing" name="Bearing of destination"></Property>
-  <Property dec="25" hex="" shortname="GPSDestDistanceRef" name="Reference for distance to destination"></Property>
-  <Property dec="26" hex="" shortname="GPSDestDistance" name="Distance to destination"></Property>
-</ExifProperties>
+  <Property dec="0" hex="0" shortname="GPSVersionID" name="GPA tag version"></Property>
+  <Property dec="1" hex="1" shortname="GPSLatitudeRef" name="North or South Latitude">
+    <Values default="">
+      <Value code="N">North latitude</Value>
+      <Value code="S">South latitude</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="2" hex="2" shortname="GPSLatitude" name="Latitude"></Property>
+  <Property dec="3" hex="3" shortname="GPSLongitudeRef" name="East or West Longitude">
+    <Values default="">
+      <Value code="E">East longitude</Value>
+      <Value code="W">West longitude</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="4" hex="4" shortname="GPSLongitude" name="Longitude"></Property>
+  <Property dec="5" hex="5" shortname="GPSAltitudeRef" name="Altitude reference">
+    <Values default="0">
+      <Value code="0">Sea level</Value>
+      <Value code="1">Sea level reference (negative value)</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="6" hex="6" shortname="GPSAltitude" name="Altitude"></Property>
+  <Property dec="7" hex="7" shortname="GPSTimeStamp" name="GPS time (atomic clock)"></Property>
+  <Property dec="8" hex="8" shortname="GPSSatellites" name="GPS satelites used for measurement"></Property>
+  <Property dec="9" hex="9" shortname="GPSStatus" name="GPS receiver status">
+    <Values default="0">
+      <Value code="A">Measurement in progress"</Value>
+      <Value code="V">Measurement Interoperability</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="10" hex="A" shortname="GPSMeasureMode" name="GPS measurement precision">
+    <Values default="">
+      <Value code="2">2-dimensional measurement</Value>
+      <Value code="3">3-dimensional measurement</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="11" hex="B" shortname="GPSDOP" name="Measurement precision"></Property>
+  <Property dec="12" hex="C" shortname="GPSSpeedRef" name="Speed unit">
+    <Values default="K">
+      <Value code="K">Kilometers per hour</Value>
+      <Value code="M">Miles per hour</Value>
+      <Value code="N">Knots</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="13" hex="D" shortname="GPSSpeed" name="Speed of GPS receiver"></Property>
+  <Property dec="14" hex="E" shortname="GPSTrackRef" name="Reference for direction of image">
+    <Values default="T">
+      <Value code=""></Value>
+      <Value code="T">True direction</Value>
+      <Value code="M">Magnetic direction</Value>
+      <Value code="Other">reserved</Value>
+  </Values>
+  </Property>
+  <Property dec="15" hex="F" shortname="GPSTrack" name="Direction of movement"></Property>
+  <Property dec="16" hex="10" shortname="GPSImgDirectionRef" name="Reference for direction of image">
+    <Values default="T">
+      <Value code=""></Value>
+      <Value code="T">True direction</Value>
+      <Value code="M">Magnetic direction</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="17" hex="11" shortname="GPSImgDirection" name="RDirection of image"></Property>
+  <Property dec="18" hex="12" shortname="GPSMapDatum" name="Geodetic survey data used"></Property>
+  <Property dec="19" hex="13" shortname="GPSDestLatitudeRef" name="Reference for latitude of destination">
+    <Values default="">
+      <Value code="N">North latitude</Value>
+      <Value code="S">South latitude</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="20" hex="14" shortname="GPSDestLatitude" name="Latitude of destination"></Property>
+  <Property dec="21" hex="15" shortname="GPSDestLongitudeRef" name="Reference for longitude of destination">
+    <Values default="">
+      <Value code="E">East longitude</Value>
+      <Value code="W">West longitude</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="22" hex="16" shortname="GPSDestLongitude" name="Longitude of destination"></Property>
+  <Property dec="23" hex="17" shortname="GPSDestBearingRef" name="Reference for bearing of destination">
+    <Values default="T">
+      <Value code=""></Value>
+      <Value code="T">True direction</Value>
+      <Value code="M">Magnetic direction</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="24" hex="18" shortname="GPSDestBearing" name="Bearing of destination"></Property>
+  <Property dec="25" hex="19" shortname="GPSDestDistanceRef" name="Reference for distance to destination">
+    <Values default="K">
+      <Value code="K">Kilometers per hour</Value>
+      <Value code="M">Miles per hour</Value>
+      <Value code="N">Knots</Value>
+      <Value code="Other">reserved</Value>
+    </Values>
+  </Property>
+  <Property dec="26" hex="1A" shortname="GPSDestDistance" name="Distance to destination"></Property>
+</ExifProperties>         
+                          
+                          
+                          
