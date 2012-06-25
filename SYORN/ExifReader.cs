@@ -20,8 +20,8 @@ namespace SYORN.Services
             foreach (var propItem in propertyItems)
             {
                 var exifProperty = _propertyItemTranslator.From(propItem.CastToExifPropertyInfo());
-                //if (!string.IsNullOrEmpty(exifProperty))
-                //    list.Add(exifProperty);
+                if (exifProperty!=null)
+                    list.Add(exifProperty);
             }
 
             return list;
