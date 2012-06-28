@@ -8,3 +8,5 @@ _Resharper.SYORN*
 *.suo
 *.orig
 *.merge_*
+
+*.pdf
